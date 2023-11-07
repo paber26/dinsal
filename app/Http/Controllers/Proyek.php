@@ -27,6 +27,21 @@ class Proyek extends Controller
         }
         // return 'oke';
     }
+    
+    public function getproyekuser(){
+        $daftarproyek = DB::table('proyek')->get();
+        $dproyek = [];
+        foreach($daftarproyek as $dp){
+            $banyakkegiatan = DB::table('kegiatan')->where(['idp', $dp->idp])->count();
+            // return $banyakkegiatan;
+            array_push($dproyek, [
+                'proyek' => $dp,
+                'banyakkegiatan' => $banyakkegiatan
+            ]);
+        }
+        return $dproyek;
+        // return 'oke';
+    }
 
     public function getproyekfilter($status){
         // return $status;

@@ -39,6 +39,14 @@ Route::post('/admin/login', [Authen::class, 'adminlogin']);
 Route::get('/auth/redirect', [Authen::class, 'redirectToProvider']);
 Route::get('/auth/callback', [Authen::class, 'handleProviderCallback']);
 
+
+Route::get('/', function () {
+    return view('user/home');
+});
+Route::get('/user/{any}', function () {
+    return view('user/home');
+})->where('any', '.*');
+
 Route::group(
     ['middleware' => 'auth'],
     function () {
@@ -60,14 +68,6 @@ Route::group(
 
 
         Route::post('/admin/logout', [Authen::class, 'adminlogout']);
-
-
-        Route::get('/', function () {
-            return view('user/home');
-        });
-        Route::get('/{any}', function () {
-            return view('user/home');
-        })->where('any', '.*');
 
         // Route::get('/user', function () {
         //     return view('user/home');

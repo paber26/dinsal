@@ -147,6 +147,7 @@
         <div class="w-11/12 grid grid-cols-4 gap-2 justify-center">
             <button
                 v-for="dproyek in daftarproyek"
+                v-if="dproyek['banyakkegiatan'] > 0"
                 @click.prevent="lihatkegiatan(dproyek['proyek'].idp)"
                 class="col-span-4 lg:col-span-1 bg-hijaust hover:bg-green-900 rounded-lg shadow-md"
             >
@@ -164,7 +165,7 @@
 
 <script>
 export default {
-    props: ["user"],
+    // props: ["user"],
     data() {
         return {
             showtambahkanproyek: false,
@@ -188,7 +189,7 @@ export default {
         berikritikdansaran() {},
 
         lihatkegiatan(idp) {
-            this.$router.push("/kegiatan/" + idp);
+            this.$router.push("/user/kegiatan/" + idp);
         },
 
         hapus() {

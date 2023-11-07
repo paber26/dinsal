@@ -14,9 +14,8 @@
     <div id="app">
         <div class="flex flex-row min-h-screen min-w-min">
             <div class="flex flex-col w-full">
-                {{-- <headeruser-component :user="{{ Auth::user() }}"></headeruser-component> --}}
                 <div class="flex-1 bg-gray-200">
-                    <router-view :user="{{ Auth::user() }}"></router-view>
+                    <router-view></router-view>
                 </div>
                 <kritikdansaran-component></kritikdansaran-component>
             </div>

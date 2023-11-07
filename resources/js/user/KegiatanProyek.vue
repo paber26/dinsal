@@ -125,7 +125,7 @@
 
 <script>
 export default {
-    props: ["user", "idp"],
+    props: ["idp"],
     data() {
         return {
             daftarkegiatan: "",
@@ -134,16 +134,9 @@ export default {
         };
     },
     mounted() {
-        axios
-            .get("/api/user/getnamaproyek/" + this.idp, {
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: "Bearer " + this.user.api_token,
-                },
-            })
-            .then((response) => {
-                this.proyeknama = response.data.nama;
-            });
+        axios.get("/api/user/getnamaproyek/" + this.idp).then((response) => {
+            this.proyeknama = response.data.nama;
+        });
         this.getkegiatanfilter();
     },
     methods: {
