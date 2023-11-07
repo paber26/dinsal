@@ -25,15 +25,15 @@
 
         <div class="w-11/12 justify-center">
             <div class="bg-white w-full p-2 rounded-md mb-3">
-                <label class="font-medium text-sm">Status Proyek</label>
+                <label class="font-medium text-sm">Status Kegiatan</label>
                 <select
                     v-model="status"
                     @change="filterstatus()"
                     class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5"
                 >
-                    <option value="Semua">Semua Proyek</option>
-                    <option value="Berlangsung">Sedang Berlangsung</option>
-                    <option value="Berakhir">Sudah Berakhir</option>
+                    <option value="Semua">Semua kegiatan</option>
+                    <option value="Berlangsung">Sedang berlangsung</option>
+                    <option value="Berakhir">Sudah berakhir</option>
                 </select>
             </div>
         </div>

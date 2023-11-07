@@ -51,7 +51,7 @@ class Authen extends Controller
             if (Hash::check($password, $user->password)) {
             // if($password == $user->password){
                 Auth::attempt(['username' => $username, 'password' => $password]);
-                return url('/user');
+                return url('/admin');
             } else {
                 return "Password salah";
             }

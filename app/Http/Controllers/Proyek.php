@@ -6,7 +6,31 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class Proyek extends Controller
-{   
+{
+    public function getinfoberanda(){
+        $proyekberlangsung = DB::table('proyek')->where('status', "Berlangsung")->count();
+        $proyekberakhir = DB::table('proyek')->where('status', "Berakhir")->count();
+        
+        $kegiatanberlangsung = DB::table('kegiatan')->where('status', "Berlangsung")->count();
+        $kegiatanberakhir = DB::table('kegiatan')->where('status', "Berakhir")->count();
+
+        $kritikdansaran = DB::table('kritikdansaran')->count();
+        $admin = DB::table('users')->count();
+        $kunjungan = DB::table('kegiatan')->sum('tkunjungan');
+
+        $info = [
+            'proyekberlangsung' => $proyekberlangsung,
+            'proyekberakhir' => $proyekberakhir,
+            'kegiatanberlangsung' => $kegiatanberlangsung,
+            'kegiatanberakhir' => $kegiatanberakhir,
+            'kritikdansaran' => $kritikdansaran,
+            'admin' => $admin,
+            'kunjungan' => $kunjungan,
+        ];
+
+        return $info;
+    }
+
     public function getproyek($idp = NULL){
         $daftarproyek = DB::table('proyek')->get();
         if($idp == NULL){

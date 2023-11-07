@@ -41,6 +41,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(
     ['middleware' => 'auth:api'],
     function () {
+        Route::get('admin/getinfoberanda', [Proyek::class, 'getinfoberanda']);
+        
         Route::get('admin/getproyek', [Proyek::class, 'getproyek']);
         Route::get('admin/getproyek/{idp}', [Proyek::class, 'getproyek']);
         Route::get('admin/getproyekfilter/{status}', [Proyek::class, 'getproyekfilter']);

@@ -25,8 +25,8 @@ Vue.component(
     require("./components/SidebarAdminComponent.vue").default
 );
 Vue.component(
-    "kritikdansaran-component",
-    require("./components/KritikdanSaranComponent.vue").default
+    "footer-component",
+    require("./components/FooterComponent.vue").default
 );
 
 const app = new Vue({

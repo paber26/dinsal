@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
-    <title>Forum Diskusi - Politeknik Statistika STIS</title>
+    <title>DINSAL - Dashboard Informasi Satu Link</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
                 <div class="flex-1 bg-gray-200">
                     <router-view></router-view>
                 </div>
-                <kritikdansaran-component></kritikdansaran-component>
+                <footer-component></footer-component>
             </div>
         </div>
     </div>

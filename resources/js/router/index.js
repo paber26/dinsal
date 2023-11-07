@@ -24,6 +24,7 @@ const AdminKritikdanSaran = require("../admin/KritikdanSaran.vue").default;
 const UserBeranda = require("../user/Beranda.vue").default;
 const KritikdanSaran = require("../user/KritikdanSaran.vue").default;
 const KegiatanProyek = require("../user/KegiatanProyek.vue").default;
+const InfoAplikasi = require("../user/InfoAplikasi.vue").default;
 
 const routes = [
     {
@@ -37,6 +38,11 @@ const routes = [
     {
         path: "/user/kegiatan/:idp",
         component: KegiatanProyek,
+        props: true,
+    },
+    {
+        path: "/user/infoaplikasi",
+        component: InfoAplikasi,
         props: true,
     },
 

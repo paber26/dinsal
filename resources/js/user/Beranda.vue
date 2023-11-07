@@ -72,9 +72,12 @@
                 v-else
                 v-for="proyek in daftarpencarian"
             >
-                <h5 class="mb-2 text-xl font-semibold text-white text-left">
+                <a
+                    :href="'/user/kegiatan/' + proyek[0].idp"
+                    class="mb-2 text-xl font-semibold text-white text-left"
+                >
                     {{ proyek[0].proyeknama }}
-                </h5>
+                </a>
                 <div v-for="kegiatan in proyek">
                     <div class="bg-white rounded-md px-3 py-1 mb-2">
                         <div class="flex flex-row items-center">
@@ -93,9 +96,9 @@
                                 />
                             </svg>
 
-                            <div class="font-bold ml-1">
+                            <a class="font-bold ml-1">
                                 {{ kegiatan.nama }}
-                            </div>
+                            </a>
                         </div>
                         <div class="flex flex-row items-center">
                             <div class="text-gray-600">Link:</div>

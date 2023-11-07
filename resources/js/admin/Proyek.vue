@@ -47,6 +47,7 @@
         >
             <p>Batal Tambahkan User</p>
         </button>
+
         <div class="w-11/12 sm:mt-0 flex flex-col justify-center">
             <div
                 class="bg-white w-full p-3 rounded-lg mb-2.5"
@@ -75,7 +76,11 @@
                 </div>
             </div>
         </div>
-        <div class="w-11/12 sm:mt-0 flex flex-col justify-center">
+
+        <div
+            class="w-11/12 sm:mt-0 flex flex-col justify-center"
+            v-if="daftarproyekfilter.length > 0"
+        >
             <div class="relative overflow-x-auto">
                 <table class="w-full text-left">
                     <thead class="text-sm text-gray-700 uppercase bg-blue-300">
@@ -177,6 +182,15 @@
                 </table>
             </div>
         </div>
+
+        <div class="w-11/12 mt-1 sm:mt-0 flex flex-col justify-center" v-else>
+            <div class="bg-white w-full p-3 rounded-md mb-2">
+                <div class="text-sm italic text-gray-500">
+                    Tidak ditemukan, coba cari yang lain
+                </div>
+            </div>
+        </div>
+
         <div class="mb-12"></div>
     </div>
 </template>
@@ -216,6 +230,9 @@ export default {
         },
         tambahkan() {
             console.log(this.fields);
+            if (this.fields.nama.length < 0) {
+                this.daftarproyekfilter = this.daftarproyek;
+            }
             axios
                 .post("/api/admin/proyek/tambahkan", this.fields, {
                     headers: {
@@ -226,12 +243,12 @@ export default {
                 .then((response) => {
                     console.log(response.data);
                     if (response.data == "Berhasil") {
+                        this.$swal(
+                            "Proyek " + this.fields.nama + " ditambahkan"
+                        );
                         this.fields.nama = "";
                         this.showtambahkanproyek = false;
                         this.getproyek();
-                        this.$swal(
-                            "Proyek " + response.data + " berhasil ditambahkan"
-                        );
                     } else {
                         this.$swal("Gagal menambahkan proyek");
                     }
@@ -308,6 +325,7 @@ export default {
             console.log(this.daftarproyekfilter);
         },
         cari() {
+            this.status = "Semua";
             if (this.keyword.length == 0) {
                 this.daftarproyekfilter = this.daftarproyek;
             } else if (this.keyword.length < 3) {

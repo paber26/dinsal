@@ -128,7 +128,7 @@
                             placeholder="Masukkan nama kegiatan ..."
                             v-model="fields.akses"
                         >
-                            <option value="Semua">Pilih jenis akses</option>
+                            <option value="">Pilih jenis akses</option>
                             <option value="Internal">Internal</option>
                             <option value="Publik">Publik</option>
                         </select>
@@ -163,7 +163,10 @@
             </div>
         </div>
 
-        <div class="w-11/12 mt-1 sm:mt-0 flex flex-col justify-center">
+        <div
+            class="w-11/12 mt-1 sm:mt-0 flex flex-col justify-center"
+            v-if="daftarkegiatanfilter.length > 0"
+        >
             <div class="relative overflow-x-auto">
                 <table class="w-full text-left">
                     <thead class="text-sm text-gray-700 uppercase bg-blue-300">
@@ -321,6 +324,14 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <div class="w-11/12 mt-1 sm:mt-0 flex flex-col justify-center" v-else>
+            <div class="bg-white w-full p-3 rounded-md mb-2">
+                <div class="text-sm italic text-gray-500">
+                    Belum ada kegiatan yang ditambahkan ...
+                </div>
             </div>
         </div>
 
