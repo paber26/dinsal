@@ -15,7 +15,14 @@
             </div>
         </div>
 
-        <div class="w-11/12 justify-center mt-4">
+        <button
+            @click.prevent="kembali()"
+            class="col-span-4 sm:col-span-1 bg-blue-500 hover:bg-blue-700 text-white text-center font-bold py-1 px-3 rounded-full mt-3"
+        >
+            <p>Kembali ke Halaman Awal</p>
+        </button>
+
+        <div class="w-11/12 justify-center mt-3">
             <div class="bg-white rounded-lg shadow-md">
                 <div class="p-3 rounded-lg w-full">
                     <div class="mb-4 text-gray-900 text-left">
@@ -81,8 +88,9 @@ export default {
         });
     },
     methods: {
-        berikritikdansaran() {},
-
+        kembali() {
+            this.$router.push("/");
+        },
         lihatkegiatan(idp) {
             this.$router.push("/user/kegiatan/" + idp);
         },

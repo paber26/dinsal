@@ -5226,6 +5226,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   // props: ["user"],
   data: function data() {
@@ -5250,7 +5257,9 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    berikritikdansaran: function berikritikdansaran() {},
+    kembali: function kembali() {
+      this.$router.push("/");
+    },
     lihatkegiatan: function lihatkegiatan(idp) {
       this.$router.push("/user/kegiatan/" + idp);
     },
@@ -5433,7 +5442,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       daftarkegiatan: "",
       proyeknama: "",
-      status: "Berlangsung"
+      status: "Semua"
     };
   },
   mounted: function mounted() {
@@ -5442,7 +5451,7 @@ __webpack_require__.r(__webpack_exports__);
     axios.get("/api/user/getnamaproyek/" + this.idp).then(function (response) {
       _this.proyeknama = response.data.nama;
     });
-    this.getkegiatanfilter();
+    this.filterstatus();
   },
   methods: {
     getkegiatan: function getkegiatan() {
@@ -61260,72 +61269,98 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "col-span-4 sm:col-span-1 bg-blue-500 hover:bg-blue-700 text-white text-center font-bold py-1 px-3 rounded-full mt-3",
+        on: {
+          click: function ($event) {
+            $event.preventDefault()
+            return _vm.kembali()
+          },
+        },
+      },
+      [_c("p", [_vm._v("Kembali ke Halaman Awal")])]
+    ),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+  ])
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex flex-col items-center w-full" }, [
-      _c("div", { staticClass: "w-11/12 justify-center mt-4" }, [
-        _c("div", { staticClass: "bg-white rounded-lg shadow-md" }, [
-          _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
-            _c(
-              "h5",
-              {
-                staticClass:
-                  "mb-2 text-xl font-semibold text-gray-900 text-left",
-              },
-              [
-                _vm._v(
-                  "\n                    DINSAL (Dashboard Informasi Satu Link)\n                "
-                ),
-              ]
+    return _c("div", { staticClass: "w-11/12 justify-center mt-4" }, [
+      _c("div", { staticClass: "bg-white rounded-lg shadow-md" }, [
+        _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
+          _c(
+            "h5",
+            {
+              staticClass: "mb-2 text-xl font-semibold text-gray-900 text-left",
+            },
+            [
+              _vm._v(
+                "\n                    DINSAL (Dashboard Informasi Satu Link)\n                "
+              ),
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-gray-700 text-left" }, [
+            _vm._v(
+              "\n                    Semangat untuk menjalani hari ini\n                "
             ),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-gray-700 text-left" }, [
-              _vm._v(
-                "\n                    Semangat untuk menjalani hari ini\n                "
-              ),
-            ]),
           ]),
         ]),
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "w-11/12 justify-center mt-4" }, [
-        _c("div", { staticClass: "bg-white rounded-lg shadow-md" }, [
-          _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
-            _c("div", { staticClass: "mb-4 text-gray-900 text-left" }, [
-              _vm._v(
-                "\n                    Dalam era digital yang terus berkembang, BPS memiliki\n                    tanggung jawab yang semakin bertambah. Sebagai penyedia\n                    data, BPS bertugas untuk memastikan perolehan data yang\n                    cepat dan akurat.\n                "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-4 text-gray-900 text-left" }, [
-              _vm._v(
-                "\n                    Dalam menjalankan kegiatannya, BPS sering membagikan\n                    informasi terkait kegiatan seperti persiapan, pencacahan\n                    lapangan, monitoring, serta evaluasi melalui berbagai\n                    link. Distribusi informasi ini sering dilakukan melalui\n                    media sosial seperti grup WhatsApp atau melalui surel.\n                    Namun, banyaknya informasi dalam bentuk link dari\n                    berbagai kegiatan seringkali membuat pegawai maupun\n                    mitra statistik kesulitan untuk mengingat dan melakukan\n                    pencarian, yang berujung pada kemungkinan kelewatnya\n                    informasi-informasi penting terkait kegiatan tersebut.\n                "
-              ),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-4 text-gray-900 text-left" }, [
-              _vm._v(
-                "\n                    Untuk pertanyaan lebih lanjut atau jika mengalami\n                    kesulitan dalam menggunakan DINSAL, silakan menghubungi\n                    Bernaldo melalui WhatsApp di nomor 0823-6005-4904.\n                "
-              ),
-            ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-11/12 justify-center mt-3" }, [
+      _c("div", { staticClass: "bg-white rounded-lg shadow-md" }, [
+        _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
+          _c("div", { staticClass: "mb-4 text-gray-900 text-left" }, [
+            _vm._v(
+              "\n                    Dalam era digital yang terus berkembang, BPS memiliki\n                    tanggung jawab yang semakin bertambah. Sebagai penyedia\n                    data, BPS bertugas untuk memastikan perolehan data yang\n                    cepat dan akurat.\n                "
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-4 text-gray-900 text-left" }, [
+            _vm._v(
+              "\n                    Dalam menjalankan kegiatannya, BPS sering membagikan\n                    informasi terkait kegiatan seperti persiapan, pencacahan\n                    lapangan, monitoring, serta evaluasi melalui berbagai\n                    link. Distribusi informasi ini sering dilakukan melalui\n                    media sosial seperti grup WhatsApp atau melalui surel.\n                    Namun, banyaknya informasi dalam bentuk link dari\n                    berbagai kegiatan seringkali membuat pegawai maupun\n                    mitra statistik kesulitan untuk mengingat dan melakukan\n                    pencarian, yang berujung pada kemungkinan kelewatnya\n                    informasi-informasi penting terkait kegiatan tersebut.\n                "
+            ),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-4 text-gray-900 text-left" }, [
+            _vm._v(
+              "\n                    Untuk pertanyaan lebih lanjut atau jika mengalami\n                    kesulitan dalam menggunakan DINSAL, silakan menghubungi\n                    Bernaldo melalui WhatsApp di nomor 0823-6005-4904.\n                "
+            ),
           ]),
         ]),
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "w-11/12 justify-center mt-4" }, [
-        _c("div", { staticClass: "bg-white rounded-lg shadow-md" }, [
-          _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
-            _c("div", { staticClass: "text-gray-900 text-left flex" }, [
-              _c("p", [_vm._v("Buku panduan aplikasi dapat diundung")]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#", target: "_blank" } }, [
-                _vm._v("disini"),
-              ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-11/12 justify-center mt-4" }, [
+      _c("div", { staticClass: "bg-white rounded-lg shadow-md" }, [
+        _c("div", { staticClass: "p-3 rounded-lg w-full" }, [
+          _c("div", { staticClass: "text-gray-900 text-left flex" }, [
+            _c("p", [_vm._v("Buku panduan aplikasi dapat diundung")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#", target: "_blank" } }, [
+              _vm._v("disini"),
             ]),
           ]),
         ]),

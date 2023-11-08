@@ -130,14 +130,14 @@ export default {
         return {
             daftarkegiatan: "",
             proyeknama: "",
-            status: "Berlangsung",
+            status: "Semua",
         };
     },
     mounted() {
         axios.get("/api/user/getnamaproyek/" + this.idp).then((response) => {
             this.proyeknama = response.data.nama;
         });
-        this.getkegiatanfilter();
+        this.filterstatus();
     },
     methods: {
         getkegiatan() {
